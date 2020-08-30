@@ -11,16 +11,26 @@ export default new Vuex.Store({
       { bookID: 3, bookName: 'Dava', author:'Franz Kafka', bookUrl:''  },
       { bookID: 4, bookName: 'Satranç', author:'Stefan Zweig', bookUrl:''  },
     ],
+    userList: [
+      { number: 1, name: 'Yeliz Durmuş', adress:'aaaaaaa', book:'Dava' },
+      { number: 2, name: 'Ahmet Demir', adress:'bbbbbbo', book:'Sefiller'  },
+      { number: 3, name: 'Deniz Oruç', adress:'jkdhkkjklla', book:'Simyacı'  },
+      { number: 4, name: 'Fatma Yılmaz', adress:'jklşks', book:'Satranç'  },
+    ],
   },
   mutations: {
     SET_BOOK(state, book) {
       state.bookList.push(book);
+    },
+    SET_USER(state, user) {
+      state.userList.push(user);
     },
   },
   actions: {
   },
   getters:{
     getBook: (state) => state.bookList,
+    getUser: (state) => state.userList,
   },
   modules: {
   }
