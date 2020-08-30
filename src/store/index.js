@@ -31,7 +31,9 @@ export default new Vuex.Store({
   getters:{
     getBook: (state) => state.bookList,
     getUser: (state) => state.userList,
-  },
+    filteredItems:(state,data)=>{
+      return state.userList.find(todo=>todo.data===bookName);
+    },},
   modules: {
   }
 })
