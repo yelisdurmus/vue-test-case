@@ -4,11 +4,21 @@
       <div class="col-sm-12">
         <div class="card px-4 py-4">
           <div class="d-flex justify-content-between">
-            <h3 style="bold">Get from User</h3>
+            <h3 style="bold">Book List</h3>
             <button type="button" @click="homepage" class="btn">return home page</button>
           </div><br/>
-            <button  @click="addBook" class="btn btn-secondary">Add New Book</button> <br/>
-            <button @click="bookList" class="btn btn-secondary">Book List</button>
+            <div v-for="(item, index) in $store.state.bookList" v-bind:key="index">
+                <div class="px-3 py-3 mb-3">
+                  <div class="d-flex justify-content-between">
+                    <img :src="item.bookUrl" width="100px" /> 
+                    <div>{{item.bookName}} <br/>
+                    {{item.author}}</div>  
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>     
+                </div> 
+                
+                  
+            </div>
+          </div>
         </div>
       </div>
   </div>
@@ -19,6 +29,12 @@
 // @ is an alias to /src
 export default {
   name: 'List',
+   data() {
+    return {
+      bookList: [],
+      updatedIndex: null,
+    }
+  },
   components: {
   },
   methods:{
